@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.exception.InvalidCardIdException;
 import com.example.demo.service.StoredValueCardManagementService;
+import com.example.demo.domain.GiftCard;
 
 @Service
 public class StoredValueCardManagementServiceImpl implements StoredValueCardManagementService {
@@ -21,14 +22,14 @@ public class StoredValueCardManagementServiceImpl implements StoredValueCardMana
 	}
 	
 	@Override
-	public double getValueForCard(long cardId) {
+	public GiftCard getValueForCard(long cardId) {
 		
 		//return mockCardValues.getOrDefault(cardId, 0.0);
 		if(!mockCardValues.containsKey(cardId)){
 			throw new InvalidCardIdException();
 		}
 		
-		return mockCardValues.get(cardId);
+		return new GiftCard(cardId, mockCardValues.get(cardId));
 	}
 
 }

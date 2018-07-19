@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import com.example.demo.domain.GiftCard;
+
 public interface StoredValueCardManagementService {
-	double getValueForCard(long cardId);
+	GiftCard getValueForCard(long cardId);
 }

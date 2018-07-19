@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.domain.GiftCard;
 import com.example.demo.service.StoredValueCardManagementService;
 
 /**
@@ -24,8 +25,8 @@ public class StoredValueCardManagementController {
 	}
 	
 	
-	@GetMapping(path = "/cards/{cardId}")
-	public double getCardValue(@PathVariable long cardId){
+	@GetMapping(path = "/cards/{cardId}", produces = "application/json")
+	public GiftCard getCardValue(@PathVariable long cardId){
 		return svcms.getValueForCard(cardId);
 	}
 }
